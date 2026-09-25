@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d43">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function(){
+      var saved=null;
+      try { saved=localStorage.getItem('sales-pc-guide-theme'); } catch(error) {}
+      var theme=saved==='light'||saved==='dark'?saved:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+      document.documentElement.dataset.theme=theme;
+      document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#101c27':'#102d43';
+    })();
+  </script>
+  <title>営業職におすすめのPC設定｜移動時間を、タスクが進む時間に</title>
+  <meta name="description" content="PCに処理を任せている間も、時間を有効に使おう。Windows 11のふた・スリープ・Wi-Fi設定を、画面操作中心に紹介。実際に改善した事例と、確認・復元の手順もまとめました。">
+  <link rel="canonical" href="https://kikkkkun.github.io/sales-pc-guide/">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="移動時間を、タスクが進む時間に。">
+  <meta property="og:description" content="営業職のためのWindows 11 電源・Wi-Fi設定ガイド。">
+  <meta property="og:url" content="https://kikkkkun.github.io/sales-pc-guide/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23102d43'/%3E%3Cpath d='M8 17h15m-6-6 6 6-6 6' fill='none' stroke='%237be0d2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{--navy:#102d43;--ink:#183248;--teal:#087f78;--teal-dark:#086963;--mint:#eaf7f4;--paper:#fff;--soft:#f4f7fa;--line:#dce5ea;--muted:#526773;--amber:#81500c;--amber-bg:#fff8e9;--radius:18px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic UI","Meiryo",sans-serif;font-size:16px;line-height:1.85}a{color:var(--teal-dark);text-underline-offset:4px}a:hover{color:var(--navy)}button,input,summary{font:inherit}button,summary,a,input{touch-action:manipulation}button{cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--teal);outline-offset:5px}h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--navy);font-feature-settings:"palt"}h1{font-size:clamp(38px,5.2vw,66px);line-height:1.27;letter-spacing:-.035em;font-weight:800;margin:20px 0 28px}h2{font-size:clamp(25px,3vw,34px);line-height:1.45;letter-spacing:-.02em;margin-bottom:22px}h3{font-size:21px;line-height:1.5;margin-bottom:12px}p{margin-bottom:20px}strong{font-weight:700}svg{display:block}section{scroll-margin-top:100px}::selection{background:#bcebe2;color:var(--navy)}
+    .skip{position:fixed;left:16px;top:-100px;background:var(--navy);color:#fff;padding:8px 18px;z-index:20}.skip:focus{top:10px}.wrap{width:min(1160px,calc(100% - 64px));margin:auto}.site-header{border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);position:sticky;top:0;z-index:10}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:750;font-size:14px;letter-spacing:.03em;text-decoration:none}.brand-mark{background:var(--navy);color:#9ee7dc;width:34px;height:34px;display:grid;place-items:center;border-radius:9px;font-size:23px;line-height:1}.header-links{display:flex;gap:24px;font-size:13px;font-weight:650}.header-links a{text-decoration:none;color:var(--muted)}.header-links a:hover{color:var(--teal)}
+    .hero{padding:64px 0 0}.eyebrow{display:flex;align-items:center;gap:12px;color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.14em}.eyebrow:before{content:"";width:28px;height:2px;background:currentColor}.hero-grid{display:grid;grid-template-columns:1.4fr .7fr;gap:66px;align-items:center}.hero-title-label{font-size:clamp(18px,2vw,23px);letter-spacing:0;display:block;margin-bottom:16px;font-weight:650}.hero h1 em{font-style:normal;color:var(--teal)}.hero-lead{max-width:640px;font-size:17px;color:var(--muted)}.meta{display:flex;flex-wrap:wrap;gap:9px 18px;color:var(--muted);font-size:12px;margin:26px 0 30px}.hero-action{display:inline-flex;gap:24px;align-items:center;padding:13px 24px;background:var(--navy);color:white;text-decoration:none;border-radius:7px;font-size:14px;font-weight:700}.hero-action:hover{background:var(--teal-dark);color:white}.journey{border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:var(--soft);position:relative}.journey-label{font-size:11px;letter-spacing:.15em;color:var(--muted);font-weight:700;margin:0 0 22px}.journey ol{list-style:none;padding:0;margin:0;display:grid;gap:0}.journey li{position:relative;display:grid;grid-template-columns:35px 1fr;column-gap:15px;padding-bottom:27px}.journey li:last-child{padding-bottom:0}.journey li:not(:last-child):after{content:"";height:calc(100% - 37px);width:1px;background:#bfced4;position:absolute;top:37px;left:16px}.journey-num{display:grid;place-items:center;border:1px solid #b7cbd2;border-radius:50%;width:34px;height:34px;font-size:11px;color:var(--muted);background:#fff;font-weight:700}.journey li:nth-child(2) .journey-num{background:var(--teal);border-color:var(--teal);color:#fff}.journey h3{font-size:16px;margin:3px 0 4px}.journey p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}.journey-foot{margin:25px 0 0;padding-top:19px;border-top:1px solid var(--line);font-size:12px;color:var(--teal-dark)}.hero-bottom{margin-top:52px;display:flex;gap:12px;align-items:center;font-size:13px;color:var(--muted);padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.tag{font-size:11px;font-weight:700;color:var(--teal-dark);background:var(--mint);border:1px solid #c4e2dc;border-radius:4px;padding:2px 9px;white-space:nowrap}
+    .article-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:70px;padding-top:64px;padding-bottom:80px}.toc{align-self:start;position:sticky;top:112px}.toc-title{font-size:11px;letter-spacing:.15em;color:var(--muted);font-weight:750;margin-bottom:18px}.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:5px}.toc a{display:flex;gap:11px;align-items:baseline;text-decoration:none;color:var(--muted);padding:9px 0;font-size:13px}.toc a span{font-size:11px;color:var(--teal);font-variant-numeric:tabular-nums}.toc a:hover{color:var(--teal-dark)}.toc-note{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:12px;color:var(--muted);line-height:1.8}.article{min-width:0;max-width:800px}.section{padding-bottom:60px;margin-bottom:52px;border-bottom:1px solid var(--line)}.section:last-child{border:0;padding-bottom:0;margin-bottom:0}.section-kicker{font-size:11px;letter-spacing:.12em;font-weight:750;color:var(--teal);margin-bottom:12px}.section-intro{font-size:17px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}.info-card{border:1px solid var(--line);border-radius:12px;padding:24px}.info-card h3{font-size:17px}.info-card p{color:var(--muted);font-size:14px;margin-bottom:0}.small-label{font-size:10px;letter-spacing:.12em;color:var(--teal);font-weight:750;display:block;margin-bottom:9px}.note{border-left:3px solid var(--teal);background:var(--mint);padding:20px 24px;border-radius:0 10px 10px 0;margin:24px 0;font-size:14px}.note p:last-child{margin-bottom:0}.note strong{display:block;margin-bottom:6px}.heat-note{background:var(--amber-bg);border-left-color:#cc973c}.heat-note strong{color:var(--amber)}.plain-list{padding-left:1.3em}.plain-list li{padding-left:4px;margin-bottom:9px}.prepare-list{list-style:none;padding:0;margin:24px 0;counter-reset:prep}.prepare-list li{counter-increment:prep;border-bottom:1px solid var(--line);padding:19px 0 19px 39px;position:relative}.prepare-list li:before{content:counter(prep,decimal-leading-zero);position:absolute;left:0;top:21px;font-size:12px;color:var(--teal);font-weight:750}.prepare-list strong{display:block;font-size:16px}.prepare-list p{font-size:14px;color:var(--muted);margin:5px 0 0}.step{margin-top:35px;border:1px solid var(--line);border-radius:14px;overflow:hidden}.step-header{padding:23px 27px;background:var(--soft);display:flex;gap:17px;align-items:flex-start;border-bottom:1px solid var(--line)}.step-number{font-size:24px;line-height:1.25;font-weight:800;color:var(--teal);letter-spacing:-.04em}.step-header h3{margin:0;font-size:20px}.step-header p{margin:4px 0 0;font-size:12px;color:var(--muted)}.step-body{padding:27px}.steps-list{padding-left:1.4em;margin:0 0 20px}.steps-list li{padding-left:5px;margin-bottom:14px}.steps-list li::marker{color:var(--teal);font-weight:750}.route{display:flex;flex-wrap:wrap;align-items:center;gap:5px 8px;background:var(--soft);border-radius:7px;padding:12px 15px;font-size:12px;margin:20px 0}.route b{color:var(--muted);font-weight:500}.target-row{background:var(--mint);display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 18px;border-radius:8px;margin:18px 0}.target-row span{font-size:12px;color:var(--muted)}.target-row strong{color:var(--teal-dark);font-size:17px}.helper{font-size:13px;color:var(--muted);margin-bottom:0}.table-scroll{overflow-x:auto;max-width:100%;margin:22px 0}.setting-table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}.setting-table th{background:var(--soft);color:var(--muted);font-size:12px;font-weight:650}.setting-table th,.setting-table td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}.setting-table td:last-child{color:var(--teal-dark);font-weight:650}.setting-table caption{text-align:left;font-size:12px;color:var(--muted);padding-bottom:10px}.setting-table .unchanged{color:var(--muted);font-weight:400}.quote{margin:25px 0;padding:30px;border-radius:12px;background:var(--navy);color:#fff}.quote p{font-size:18px;line-height:1.85;margin-bottom:15px}.quote cite{font-size:12px;color:#c0d8e0;font-style:normal}.quote .small-label{color:#9ee7dc}.verification{list-style:none;padding:0;margin:24px 0}.verification li{border-bottom:1px solid var(--line)}.verification label{display:flex;align-items:flex-start;gap:12px;padding:16px 0;cursor:pointer;font-size:14px}.verification input{margin-top:7px;width:18px;height:18px;flex:none;accent-color:var(--teal)}.verification input:checked+span{color:var(--teal-dark)}.verification small{display:block;font-size:12px;color:var(--muted);margin-top:4px}.restore{margin-top:35px;padding:26px;border:1px solid var(--line);border-radius:12px}.restore h3{font-size:19px}.restore p{font-size:14px}.sources{font-size:13px;color:var(--muted);margin-top:40px}.sources h3{font-size:15px}.sources ol{padding-left:1.5em}.sources li{margin:11px 0}.sources a{overflow-wrap:anywhere}.source-ref{font-size:12px;margin-top:16px;margin-bottom:0;color:var(--muted)}
+    details{border:1px solid var(--line);border-radius:9px;margin-top:24px;background:#fff}summary{padding:17px 19px;cursor:pointer;font-size:13px;font-weight:700;color:var(--navy)}details[open] summary{border-bottom:1px solid var(--line)}.details-content{padding:20px;min-width:0}.details-content p,.details-content li{font-size:13px}.code-label{font-size:12px;font-weight:700;color:var(--muted);margin:24px 0 8px}.code-box{background:#122b3e;border-radius:8px;overflow:hidden;margin:10px 0 18px;max-width:100%}.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#1d394c;padding:9px 13px;color:#c9dce5;font-size:11px}.copy-btn{border:1px solid #7692a3;border-radius:5px;background:transparent;color:#fff;padding:4px 10px;font-size:11px;line-height:1.6;display:none}.js .copy-btn{display:inline-block}.copy-btn:hover{background:#305164}.code-box pre{font:12px/1.8 Consolas,"Cascadia Code",monospace;color:#e0f3f4;margin:0;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;tab-size:2}.code-box code{font:inherit}.index-map{font-size:12px!important;color:var(--muted)}.status-message{min-height:1.6em;font-size:12px!important;color:var(--teal-dark);margin:5px 0 0!important}.footer{background:var(--navy);color:#c0d2dd;padding:28px 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:12px}.footer a{color:#d5eee9}.footer strong{color:#fff;display:block;font-size:13px}.footer p{margin:0}.footer-links{display:flex;gap:20px}
+    @media(min-width:1300px){.hero-grid{grid-template-columns:1.5fr .7fr}}@media(max-width:1000px){.hero-grid{gap:32px;grid-template-columns:1.5fr .9fr}.journey{padding:23px}.article-layout{gap:35px;grid-template-columns:180px minmax(0,1fr)}h1{font-size:49px}}@media(max-width:760px){html{scroll-padding-top:86px}.wrap{width:calc(100% - 36px)}.header-inner{height:64px}.brand{font-size:11px;gap:8px}.brand-mark{width:29px;height:29px;font-size:21px}.header-links{gap:16px;font-size:12px}.header-links .desktop-link{display:none}.hero{padding-top:37px}.hero-grid{grid-template-columns:1fr;gap:32px}h1{font-size:clamp(35px,8.3vw,54px);margin-top:17px;margin-bottom:23px}.hero-title-label{font-size:17px;margin-bottom:15px}.hero-lead{font-size:15px;max-width:560px}.hero-action{padding:12px 20px}.meta{margin:23px 0;font-size:11px}.journey{padding:22px}.journey ol{grid-template-columns:1fr 1fr 1fr;gap:14px}.journey li{display:block;padding-bottom:0}.journey li:not(:last-child):after{display:none}.journey-num{margin-bottom:10px}.journey h3{font-size:13px;margin-bottom:8px}.journey p{font-size:11px}.journey-label{margin-bottom:18px}.journey-foot{margin-top:20px;padding-top:15px;font-size:11px}.hero-bottom{margin-top:32px;align-items:flex-start;font-size:12px;padding:17px 0}.article-layout{display:block;padding-top:30px;padding-bottom:45px}.toc{position:static;margin-bottom:42px;border-bottom:1px solid var(--line);padding-bottom:25px}.toc-title{margin-bottom:8px}.toc ol{display:grid;grid-template-columns:1fr 1fr;gap:1px 20px}.toc a{font-size:12px}.toc-note{display:none}.section{padding-bottom:37px;margin-bottom:37px}h2{font-size:26px;margin-bottom:18px}.section-intro{font-size:16px}.two-col{gap:12px}.info-card{padding:18px}.info-card h3{font-size:16px}.info-card p{font-size:13px}.note{padding:18px;font-size:13px}.step-header{padding:19px;gap:13px}.step-header h3{font-size:18px}.step-body{padding:20px}.steps-list{font-size:14px;padding-left:1.3em}.setting-table th,.setting-table td{padding:12px 10px}.setting-table{font-size:12px}.setting-table th{font-size:11px}.quote{padding:23px}.quote p{font-size:16px}.target-row{padding:13px;align-items:flex-start;flex-direction:column;gap:3px}.target-row strong{font-size:16px}.details-content{padding:16px}.code-box pre{font-size:11px;padding:14px}.footer-inner{align-items:flex-start;flex-direction:column;gap:16px}.restore{padding:21px}}@media(max-width:390px){.two-col{grid-template-columns:1fr}.header-links{gap:10px}.hero-title-label{font-size:15px}.journey{padding:17px}.journey ol{gap:10px}.setting-table th,.setting-table td{padding:10px 7px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.site-header,.toc,.hero-action,.copy-btn,.footer-links{display:none!important}.wrap{width:100%}.hero{padding-top:0}.hero-grid{grid-template-columns:1fr}.journey{display:none}.hero-bottom{margin-top:18px}.article-layout{display:block;padding-top:25px}.section{break-inside:auto}.step,.note,.quote{break-inside:avoid}body{font-size:11pt}.footer{background:white;color:var(--muted)}.footer strong{color:var(--navy)}h1{font-size:30pt}h2{font-size:19pt}.section{padding-bottom:25px;margin-bottom:25px}}
+    /* Semantic colors keep headings, filled controls and dark surfaces independent. */
+    :root{color-scheme:light;--header-bg:rgba(255,255,255,.96);--strong-surface:#102d43;--strong-ink:#fff;--action-bg:#102d43;--action-ink:#fff;--action-hover:#086963;--accent-ink:#fff;--circle-line:#b7cbd2;--journey-line:#bfced4;--tag-line:#c4e2dc;--selection-bg:#bcebe2;--selection-ink:#102d43}
+    :root[data-theme="dark"]{color-scheme:dark;--navy:#e8f1f7;--ink:#d6e3ed;--teal:#70ddca;--teal-dark:#92e5d6;--mint:#18372f;--paper:#101c27;--soft:#192935;--line:#344957;--muted:#b0c3d0;--amber:#f2ca88;--amber-bg:#332b20;--header-bg:rgba(16,28,39,.97);--strong-surface:#142f43;--strong-ink:#eef6fa;--action-bg:#70ddca;--action-ink:#102d43;--action-hover:#9eecde;--accent-ink:#102d43;--circle-line:#57717e;--journey-line:#435e6a;--tag-line:#416e60;--selection-bg:#376f66;--selection-ink:#fff}
+    @media screen and (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--navy:#e8f1f7;--ink:#d6e3ed;--teal:#70ddca;--teal-dark:#92e5d6;--mint:#18372f;--paper:#101c27;--soft:#192935;--line:#344957;--muted:#b0c3d0;--amber:#f2ca88;--amber-bg:#332b20;--header-bg:rgba(16,28,39,.97);--strong-surface:#142f43;--strong-ink:#eef6fa;--action-bg:#70ddca;--action-ink:#102d43;--action-hover:#9eecde;--accent-ink:#102d43;--circle-line:#57717e;--journey-line:#435e6a;--tag-line:#416e60;--selection-bg:#376f66;--selection-ink:#fff}}
+    .skip{background:var(--strong-surface);color:var(--strong-ink)}
+    ::selection{background:var(--selection-bg);color:var(--selection-ink)}
+    .site-header{background:var(--header-bg)}.brand-mark{background:var(--strong-surface)}
+    .hero-action{background:var(--action-bg);color:var(--action-ink)}.hero-action:hover{background:var(--action-hover);color:var(--action-ink)}
+    .journey-num{background:var(--paper);border-color:var(--circle-line)}.journey li:not(:last-child):after{background:var(--journey-line)}.journey li:nth-child(2) .journey-num{color:var(--accent-ink)}
+    .tag{border-color:var(--tag-line)}details{background:var(--paper)}.quote,.footer{background:var(--strong-surface);color:var(--strong-ink)}
+    .header-actions{display:flex;align-items:center;gap:24px}.theme-toggle{display:none;align-items:center;justify-content:center;gap:7px;flex:none;min-height:36px;padding:5px 12px;border:1px solid var(--line);border-radius:7px;background:var(--soft);color:var(--ink);font-size:12px;font-weight:650;line-height:1.5}.js .theme-toggle{display:inline-flex}.theme-toggle:hover{border-color:var(--teal);color:var(--teal-dark)}.theme-icon{font-size:18px;line-height:1}
+    @media(max-width:760px){.header-actions{gap:12px}.header-actions .header-links{display:none}.theme-toggle{min-height:34px;padding:5px 10px;font-size:11px}}
+    @media print{ :root,:root[data-theme],:root:not([data-theme]){color-scheme:light;--navy:#102d43;--ink:#183248;--teal:#087f78;--teal-dark:#086963;--mint:#eaf7f4;--paper:#fff;--soft:#f4f7fa;--line:#dce5ea;--muted:#526773;--amber:#81500c;--amber-bg:#fff8e9;--strong-surface:#102d43;--strong-ink:#fff;--accent-ink:#fff;--circle-line:#b7cbd2;--journey-line:#bfced4;--tag-line:#c4e2dc}.theme-toggle{display:none!important}.footer{background:white;color:var(--muted)} }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#article">本文へ移動</a>
+  <header class="site-header"><div class="wrap header-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">→</span>WORK ON THE MOVE</a>
+    <div class="header-actions"><nav class="header-links" aria-label="主要な項目"><a href="#settings">設定手順</a><a class="desktop-link" href="#case">改善した実例</a><a href="#verify">確認・戻し方</a></nav><button id="theme-toggle" class="theme-toggle" type="button" aria-label="ダークモードに切り替える"><span class="theme-icon" aria-hidden="true">☾</span><span id="theme-label">ダーク</span></button></div>
+  </div></header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">WINDOWS 11 · FIELD GUIDE</div>
+          <h1><span class="hero-title-label">営業職におすすめのPC設定</span>移動時間を、<br><em>タスクが進む</em><br>時間に。</h1>
+          <p class="hero-lead">PCに処理を任せている間も、時間を有効に使おう。<br>Windows 11の電源・Wi-Fi設定ガイド</p>
+          <div class="meta"><span>文・検証事例：kikkkkun</span><span>更新：<time datetime="2026-09-25">2026.09.25</time></span><span>Windows 11向け</span></div>
+          <a class="hero-action" href="#settings">設定手順を読む <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="journey" aria-label="移動時間の活用イメージ">
+          <p class="journey-label">MAKE THE WAIT WORK.</p>
+          <ol>
+            <li><span class="journey-num" aria-hidden="true">01</span><div><h3>出発前に、任せる。</h3><p>AIへの依頼や集計を開始。<br>進め方を決めておく。</p></div></li>
+            <li><span class="journey-num" aria-hidden="true">02</span><div><h3>移動中も、進める。</h3><p>電源・通信・放熱を確保して、<br>PCの処理を続ける。</p></div></li>
+            <li><span class="journey-num" aria-hidden="true">03</span><div><h3>到着したら、確認。</h3><p>結果を見直して、<br>次の仕事へつなげる。</p></div></li>
+          </ol>
+          <div class="journey-foot">PCを動かし続けられる環境で活用する設定です。</div>
+        </aside>
+      </div>
+      <div class="hero-bottom"><span class="tag">実例あり</span><span>ふたを閉じるとWi-Fiが切れていたPCで、設定変更後に改善を確認しました。</span></div>
+    </div>
+
+    <div class="article-layout">
+      <nav class="toc" aria-label="記事の目次"><p class="toc-title">CONTENTS</p><ol>
+        <li><a href="#use"><span>01</span>移動時間の使い方</a></li>
+        <li><a href="#before"><span>02</span>先に確認すること</a></li>
+        <li><a href="#settings"><span>03</span>Windowsの設定手順</a></li>
+        <li><a href="#case"><span>04</span>改善した実例</a></li>
+        <li><a href="#verify"><span>05</span>確認と元に戻す方法</a></li>
+      </ol><p class="toc-note">画面の名称や設定項目は、WindowsのバージョンやPCの機種で異なる場合があります。</p></nav>
+
+      <article class="article" id="article">
+        <section id="use" class="section">
+          <p class="section-kicker">01 / USE THE TIME</p><h2>「待っている時間」を、<br>次の仕事の準備に。</h2>
+          <p class="section-intro">資料の下調べ、AIによる下書き、時間のかかる集計。処理の完了を待つ間に移動できれば、到着後は結果の確認から始められます。</p>
+          <p>ただし、ふたを閉じたときのスリープやWi-Fiの省電力設定が、処理や通信の中断につながることがあります。まずは、自分が使うツールの動き方を確認しましょう。</p>
+          <div class="two-col">
+            <div class="info-card"><span class="small-label">ON YOUR PC</span><h3>PC上で動く処理</h3><p>Excelの集計やローカルの自動処理など。PCがスリープすると処理も中断するため、必要な間は起動状態を保ちます。</p></div>
+            <div class="info-card"><span class="small-label">IN THE CLOUD</span><h3>クラウド側で動く処理</h3><p>依頼後にサーバー側で続く処理は、PCを起動し続ける必要がない場合も。画面を閉じた後の動作は、ツールごとに確認します。</p></div>
+          </div>
+          <div class="note"><strong>「AIに頼んだら必ず動き続ける」とは限りません。</strong><p>ブラウザーの接続が必要な処理や、途中で操作を求めるツールもあります。最初は短い処理で、ふたを閉じた後も進むか試しておきましょう。</p></div>
+        </section>
+
+        <section id="before" class="section">
+          <p class="section-kicker">02 / BEFORE YOU START</p><h2>電源の設定と、<br>通信の準備はセットで。</h2>
+          <ul class="prepare-list">
+            <li><strong>移動先でも使える通信回線を用意する</strong><p>インターネットが必要な処理には、スマートフォンのテザリングやモバイルルーターなどを使います。会社のWi-Fiの圏外へ出れば、その接続は切れます。圏外や回線切り替えによる中断までは、この設定では防げません。</p></li>
+            <li><strong>バッテリー残量と、処理にかかる時間を確認する</strong><p>スリープを止めたり、Wi-Fiを最大パフォーマンスにしたりすると、消費電力は増えます。PCだけでなく、テザリング側の電池残量や通信量も確認します。</p></li>
+            <li><strong>変更前の値を、画面写真やメモに残す</strong><p>電源接続時とバッテリー使用時の両方を控えます。会社の管理で項目が変更できない場合は、管理担当者に確認してください。</p></li>
+          </ul>
+          <div class="note heat-note"><strong>手提げやエコバッグでも、放熱の確認を。</strong><p>布の通気性だけでは、PCの吸排気口が塞がれないとは限りません。布や書類が触れて通風を妨げる状態、熱がこもる収納状態で稼働を続けないでください。通風を確保できない持ち運びでは、処理を区切って休止状態またはシャットダウンにします。</p><p>まずは机などの硬く平らな場所で動作を確認し、使用機種の取り扱い説明に従ってください。<a href="https://i.dell.com/sites/doccontent/shared-content/solutions/en/Documents/puh_english_us.pdf">Dellの取り扱い説明（英語PDF）</a></p></div>
+        </section>
+
+        <section id="settings" class="section">
+          <p class="section-kicker">03 / SET UP WINDOWS</p><h2>処理を続けたいときの、<br>3つの基本設定。</h2>
+          <p>電源接続時だけでなく、<strong>バッテリー使用時の欄も</strong>確認します。すでに下記の値なら、変更は不要です。設定前に、それぞれの元の値を控えてください。</p>
+
+          <div class="step" id="lid-setting">
+            <div class="step-header"><span class="step-number">01</span><div><h3>ふたを閉じても、処理を続ける</h3><p>カバーを閉じたときの動作</p></div></div>
+            <div class="step-body"><ol class="steps-list">
+              <li>スタートで「<strong>コントロール パネル</strong>」を検索して開きます。</li>
+              <li>「<strong>ハードウェアとサウンド</strong>」→「<strong>電源オプション</strong>」→「<strong>カバーを閉じたときの動作の選択</strong>」を開きます。</li>
+              <li>「カバーを閉じたときの動作」を、バッテリー駆動・電源に接続の両方で「<strong>何もしない</strong>」にし、「<strong>変更の保存</strong>」を押します。</li>
+            </ol><div class="target-row"><span>バッテリー駆動 ／ 電源に接続</span><strong>何もしない</strong></div><p class="helper">一覧表示のコントロール パネルでは「電源オプション」を直接開けます。電源ボタンの動作や、サインイン・画面ロックの設定は変更しません。</p></div>
+          </div>
+
+          <div class="step" id="sleep-setting">
+            <div class="step-header"><span class="step-number">02</span><div><h3>自動スリープで、中断させない</h3><p>操作しない時間が続いたときの動作</p></div></div>
+            <div class="step-body"><ol class="steps-list">
+              <li>「<strong>設定</strong>」→「<strong>システム</strong>」→「<strong>電源とバッテリー</strong>」を開きます。</li>
+              <li>「<strong>画面、スリープ、休止状態のタイムアウト</strong>」または「<strong>画面とスリープ</strong>」を開きます。</li>
+              <li>「デバイスをスリープ状態にする」時間を、バッテリー使用時・電源接続時の両方で「<strong>なし</strong>」にします。</li>
+            </ol><div class="target-row"><span>バッテリー使用時 ／ 電源接続時</span><strong>スリープまでの時間：なし</strong></div><p class="helper">設定画面の名称はバージョンで異なります。コントロール パネルの「電源オプション」→選択中のプランの「プラン設定の変更」でも、スリープまでの時間を確認できます。</p></div>
+          </div>
+
+          <div class="step" id="wifi-setting">
+            <div class="step-header"><span class="step-number">03</span><div><h3>Wi-Fiの省電力を、見直す</h3><p>無線接続が切れる場合の対策</p></div></div>
+            <div class="step-body"><ol class="steps-list">
+              <li>コントロール パネルの「<strong>電源オプション</strong>」で、選択中のプランの「<strong>プラン設定の変更</strong>」を開きます。</li>
+              <li>「<strong>詳細な電源設定の変更</strong>」→「<strong>ワイヤレス アダプターの設定</strong>」→「<strong>省電力モード</strong>」を開きます。</li>
+              <li>バッテリ駆動・電源に接続の両方を「<strong>最大パフォーマンス</strong>」にし、「<strong>適用</strong>」→「<strong>OK</strong>」を押します。</li>
+            </ol><div class="target-row"><span>バッテリ駆動 ／ 電源に接続</span><strong>最大パフォーマンス</strong></div><p class="source-ref">Wi-Fiが頻繁に切れる場合の対処として、<a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows">Microsoftも案内している設定</a>です。</p>
+
+            <details id="wifi-commands"><summary>「ワイヤレス アダプターの設定」が表示されない場合</summary><div class="details-content">
+              <p>Windows標準のPowerShellから同じ設定を確認・変更できます。スタートで「<strong>PowerShell</strong>」を検索して開き、次の順で実行してください。各ブロックは貼り付けた後にEnterを押します。エラーやアクセス拒否が出たら、そこで止めて管理担当者に確認してください。</p>
+              <p class="code-label">① 現在の設定を確認する（変更しません）</p>
+              <div class="code-box"><div class="code-toolbar"><span>PowerShell · 確認</span><button type="button" class="copy-btn" data-copy="code-check" aria-label="現在の設定を確認するコマンドをコピー">コピー</button></div><pre><code id="code-check">powercfg /getactivescheme
+powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1</code></pre></div>
+              <p><strong>プラン名と「現在のAC／DC電源設定のインデックス」を両方控えてください。</strong> ACは電源接続時、DCはバッテリー時です。該当項目が出ない場合は、以降を実行しないでください。</p>
+              <p class="index-map">末尾の値：0＝最大パフォーマンス ／ 1＝省電力（低） ／ 2＝省電力（中） ／ 3＝省電力（高）。例：<code>0x00000002</code> は「2」です。</p>
+              <p class="code-label">② Wi-Fiを最大パフォーマンスにする</p>
+              <div class="code-box"><div class="code-toolbar"><span>PowerShell · 変更</span><button type="button" class="copy-btn" data-copy="code-change" aria-label="Wi-Fiを最大パフォーマンスにするコマンドをコピー">コピー</button></div><pre><code id="code-change">&amp; {
+  powercfg /setacvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 0
+  if ($LASTEXITCODE -ne 0) { throw '電源接続時の変更に失敗しました。ここで止めてください。' }
+  powercfg /setdcvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 0
+  if ($LASTEXITCODE -ne 0) { throw 'バッテリー時の変更に失敗しました。AC側は変更済みの場合があります。' }
+  powercfg /setactive SCHEME_CURRENT
+  if ($LASTEXITCODE -ne 0) { throw '設定の適用に失敗しました。' }
+  powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1
+}</code></pre></div>
+              <p>対象は現在選択している電源プランのWi-Fi設定だけです。完了後、AC・DCの両方が <code>0x00000000</code> になったことを確認してください。ふたやスリープの設定は、上の画面操作で別途行います。</p>
+              <p class="status-message" role="status" aria-live="polite"></p>
+            </div></details>
+            </div>
+          </div>
+          <div class="note"><strong>「スリープしない」は、必要な間だけ。</strong><p>作業が終わったら元の設定に戻すか、スタートの電源メニューから休止状態・シャットダウンを選びます。設定変更後は、ふたを閉じるだけではPCは眠りません。</p></div>
+        </section>
+
+        <section id="case" class="section">
+          <p class="section-kicker">04 / A REAL EXAMPLE</p><h2>今回のPCでは、<br>この2項目で改善しました。</h2>
+          <p>ふたを閉じるとWi-Fiが切れるWindows 11のノートPCで、バッテリー使用時の次の2項目を変更しました。その後、実際の利用で改善を確認しています。</p>
+          <div class="table-scroll"><table class="setting-table"><caption>バッテリー使用時の設定：変更前と変更後</caption><thead><tr><th scope="col">項目</th><th scope="col">変更前</th><th scope="col">変更後</th></tr></thead><tbody>
+            <tr><th scope="row">Wi-Fiの省電力</th><td>省電力（中）</td><td>最大パフォーマンス</td></tr>
+            <tr><th scope="row">自動画面消灯</th><td>10分</td><td>なし</td></tr>
+          </tbody></table></div>
+          <p class="helper">このPCでは、ふたを閉じたときの「何もしない」と自動スリープ「なし」は、変更前から設定済みでした。電源接続時のWi-Fiと自動画面消灯も、変更後と同じ値でした。</p>
+          <blockquote class="quote"><span class="small-label">WHAT WE LEARNED</span><p>ふたの設定だけでなく、<br>バッテリー時の省電力設定も確認する。</p><cite>2026年9月25日 · 今回の改善事例から</cite></blockquote>
+          <h3>追加で試した「自動画面消灯：なし」</h3>
+          <p>「設定」→「システム」→「電源とバッテリー」から、画面・スリープのタイムアウトを開きます。<strong>バッテリー使用時に画面をオフにする時間</strong>を「なし」に変更しました。</p>
+          <p>今回は2項目を同時に変更しているため、どちらが効いたかは単独で切り分けていません。画面消灯を止めることが、すべてのPCで必要とは限りません。試す場合は元の時間を控え、改善しなければ戻してください。</p>
+          <div class="note"><strong>画面が消えることと、スリープは別の設定です。</strong><p>一部のPCは、画面消灯後の省電力動作が機種やWindowsの仕様に左右されます。「画面を消したら必ずWi-Fiが切れる」という意味ではありません。</p></div>
+        </section>
+
+        <section id="verify" class="section">
+          <p class="section-kicker">05 / CHECK &amp; RESTORE</p><h2>小さく試してから、<br>いつもの使い方へ。</h2>
+          <p>まずは安定した通信と放熱を確保できる場所で確認します。電源接続時・バッテリー時の<strong>両方で同じ確認</strong>をしてください。</p>
+          <ul class="verification">
+            <li><label><input type="checkbox"><span>変更前の設定を、AC・DCそれぞれ記録した<small>ふたの動作・スリープ時間・Wi-Fi省電力・変更する場合の画面消灯時間。</small></span></label></li>
+            <li><label><input type="checkbox"><span>短い処理を開始し、ふたを閉じて10分以上待った<small>PCは通風を確保できる場所に置きます。最初から鞄の中で試さないでください。</small></span></label></li>
+            <li><label><input type="checkbox"><span>ふたを開いた後、処理が進んでいたことを確認した<small>Wi-Fiの接続表示だけでなく、結果や処理ログに中断がないか確認します。</small></span></label></li>
+            <li><label><input type="checkbox"><span>使う予定の通信回線でも確認した<small>テザリング、必要なVPN、アプリへのサインインが維持されるかも確認します。</small></span></label></li>
+          </ul><p class="helper">チェックはこの画面上だけの確認用です。再読み込み後の保存はしません。</p>
+          <div class="restore"><h3>元に戻すときは</h3><p>設定したのと同じ画面を開き、<strong>変更前に控えた値</strong>に戻します。ふたの動作とWi-Fiは保存・適用まで行い、電源接続時・バッテリー時をそれぞれ見直してください。</p><p>一律の「既定値に戻す」では、今回触っていない項目まで変わる場合があります。変更した項目だけを戻しましょう。</p>
+            <details id="restore-commands"><summary>コマンドで変更したWi-Fi設定を戻す場合</summary><div class="details-content">
+              <p>コントロール パネルの「電源オプション」で、<strong>変更前に控えたプランと同じもの</strong>を選んでから実行します。AC・DCそれぞれの元の値（0～3）を聞かれたら入力します。記録がない場合は値を推測せず、管理担当者に確認してください。</p>
+              <div class="code-box"><div class="code-toolbar"><span>PowerShell · 復元</span><button type="button" class="copy-btn" data-copy="code-restore" aria-label="元のWi-Fi設定へ戻すコマンドをコピー">コピー</button></div><pre><code id="code-restore">&amp; {
+  $acValue = Read-Host '記録した変更前のAC値を入力（0～3）'
+  $dcValue = Read-Host '記録した変更前のDC値を入力（0～3）'
+  if ($acValue -notmatch '^[0-3]$' -or $dcValue -notmatch '^[0-3]$') {
+    throw '0～3の数字で入力してください。設定は変更していません。'
+  }
+  powercfg /setacvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a $acValue
+  if ($LASTEXITCODE -ne 0) { throw 'AC側の復元に失敗しました。' }
+  powercfg /setdcvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a $dcValue
+  if ($LASTEXITCODE -ne 0) { throw 'DC側の復元に失敗しました。AC側は復元済みの場合があります。' }
+  powercfg /setactive SCHEME_CURRENT
+  if ($LASTEXITCODE -ne 0) { throw '復元した設定の適用に失敗しました。' }
+  powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1
+}</code></pre></div>
+              <p>最後に表示されるAC・DC値が、控えた値と一致することを確認します。このコマンドはWi-Fi設定だけを戻します。スリープや画面消灯は、元の画面から戻してください。</p><p class="status-message" role="status" aria-live="polite"></p>
+            </div></details>
+          </div>
+          <div class="note"><strong>まだ切れる場合は、起きた時刻と条件を記録する。</strong><p>電源接続の有無、使った回線、ふたを閉じて何分で止まったかを控えます。回線・ドライバー・会社のポリシーなど、別の原因の可能性もあるため、同じ設定変更を繰り返すより切り分けに役立ちます。</p></div>
+          <div class="sources" id="sources"><h3>参考にした公式情報</h3><ol>
+            <li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows">Microsoft：WindowsのWi-Fi接続の問題を解決する</a></li>
+            <li><a href="https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc">Microsoft：PCのシャットダウン・スリープ・休止状態</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-controls-enableinputsuppression">Microsoft Learn：ふたを閉じたときの動作とModern Standby</a></li>
+            <li><a href="https://i.dell.com/sites/doccontent/shared-content/solutions/en/Documents/puh_english_us.pdf">Dell：製品の使用と取り扱い（英語PDF）</a></li>
+          </ol><p>本記事は個人の実例に基づく設定ガイドです。特定の会社・メーカーの公式推奨設定を示すものではありません。</p></div>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><p><strong>WORK ON THE MOVE</strong>移動時間を、タスクが進む時間に。</p><div class="footer-links"><a href="https://github.com/kikkkkun/sales-pc-guide">GitHub</a><a href="#top">ページの先頭へ ↑</a></div></div></footer>
+  <script>
+    document.documentElement.classList.add('js');
+    (function(){
+      var button=document.getElementById('theme-toggle');
+      var label=document.getElementById('theme-label');
+      var icon=button.querySelector('.theme-icon');
+      var systemTheme=window.matchMedia('(prefers-color-scheme: dark)');
+      var preference=null;
+      try { preference=localStorage.getItem('sales-pc-guide-theme'); } catch(error) {}
+      if(preference!=='light'&&preference!=='dark') preference=null;
+      function applyTheme(theme){
+        document.documentElement.dataset.theme=theme;
+        var isDark=theme==='dark';
+        label.textContent=isDark?'ライト':'ダーク';
+        icon.textContent=isDark?'☀':'☾';
+        button.setAttribute('aria-label',isDark?'ライトモードに切り替える':'ダークモードに切り替える');
+        button.title=isDark?'ライトモードに切り替える':'ダークモードに切り替える';
+        document.querySelector('meta[name="theme-color"]').content=isDark?'#101c27':'#102d43';
+      }
+      applyTheme(preference||(systemTheme.matches?'dark':'light'));
+      button.addEventListener('click',function(){
+        preference=document.documentElement.dataset.theme==='dark'?'light':'dark';
+        applyTheme(preference);
+        try { localStorage.setItem('sales-pc-guide-theme',preference); } catch(error) {}
+      });
+      if(systemTheme.addEventListener) systemTheme.addEventListener('change',function(event){
+        if(!preference) applyTheme(event.matches?'dark':'light');
+      });
+    })();
+    document.querySelectorAll('[data-copy]').forEach(function(button){
+      button.addEventListener('click', async function(){
+        var code=document.getElementById(button.dataset.copy);
+        var status=button.closest('.details-content').querySelector('[role="status"]');
+        try{
+          if(!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
+          await navigator.clipboard.writeText(code.textContent);
+          button.textContent='コピーしました';
+          status.textContent='コマンドをコピーしました。内容を確認してからPowerShellに貼り付けてください。';
+          window.setTimeout(function(){button.textContent='コピー';},2500);
+        }catch(error){
+          var range=document.createRange();range.selectNodeContents(code);
+          var selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);
+          status.textContent='自動コピーを利用できません。選択したコマンドを手動でコピーしてください。';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
