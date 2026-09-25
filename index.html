@@ -49,7 +49,8 @@
     .figure-open{overflow:hidden}.figure-dialog{padding:0;width:min(1100px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);overflow:hidden;box-shadow:0 18px 80px #0006}.figure-dialog:not([open]){display:none}.figure-dialog[open]{display:flex;flex-direction:column}.figure-dialog::backdrop{background:rgba(4,15,25,.78)}.figure-dialog-header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);flex:none}.figure-dialog-header h2{font-size:18px;margin:3px 0 0;line-height:1.5}.figure-dialog-close{flex:none;min-height:44px;padding:7px 15px;border:1px solid var(--line);border-radius:7px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:700}.figure-dialog-hint{font-size:12px;color:var(--muted);padding:12px 22px;margin:0;flex:none}.figure-dialog-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;max-height:75dvh;background:var(--soft);padding:0 0 12px}.figure-dialog-scroll:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}.figure-dialog-scroll .windows-screen{min-width:800px;max-width:none}.figure-dialog-scroll .figure-legend{font-size:14px}
     @media(max-width:760px){.visual-guide-note{padding:16px}.figure-heading{padding:14px 16px;font-size:14px}.figure-legend{padding-left:36px;padding-right:16px;font-size:13px}.figure-zoom{margin-left:16px;margin-bottom:16px}.figure-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:10px}.figure-dialog-header{padding:14px;gap:12px}.figure-dialog-header h2{font-size:16px}.figure-dialog-hint{padding:10px 14px}.figure-dialog-close{padding:7px 10px}}
     @media print{.figure-zoom,.figure-dialog{display:none!important}.setting-figure{break-inside:avoid}.step{break-inside:auto}.figure-open{overflow:visible}}
-  </style>
+  .quick-setup{margin:30px 0 40px;padding:26px;border:1px solid var(--teal);border-radius:14px;background:var(--mint);scroll-margin-top:100px}.quick-setup h3{font-size:24px}.quick-setup p,.quick-setup li{font-size:14px}.quick-setup .steps-list{margin-top:25px}.command-panel .setup-copy{padding:12px 18px;margin:10px 0;border:0;border-radius:7px;background:var(--action-bg);color:var(--action-ink);font-size:14px;font-weight:700;white-space:normal;max-width:100%;min-height:44px}.command-panel .setup-copy:hover{background:var(--action-hover)}.command-panel .all-command{margin-top:15px}.all-command .code-box{margin:0;border-radius:0 0 8px 8px}.all-command pre{max-height:360px;overflow:auto}.command-footnote{margin-top:18px;margin-bottom:14px}.manual-heading{margin-top:35px}#quick-restore{scroll-margin-top:100px}@media(max-width:760px){.quick-setup{padding:19px}.quick-setup h3{font-size:21px}.quick-setup .steps-list{font-size:14px}.command-panel .setup-copy{font-size:13px;width:100%}}@media print{.all-command pre{max-height:none;overflow:visible}}
+</style>
 </head>
 <body id="top">
   <a class="skip" href="#article">本文へ移動</a>
@@ -66,7 +67,7 @@
           <h1><span class="hero-title-label">営業職におすすめのPC設定</span>移動時間を、<br><em>タスクが進む</em><br>時間に。</h1>
           <p class="hero-lead">PCに処理を任せている間も、時間を有効に使おう。<br>Windows 11の電源・Wi-Fi設定ガイド</p>
           <div class="meta"><span>文・検証事例：kikkkkun</span><span>更新：<time datetime="2026-09-25">2026.09.25</time></span><span>Windows 11向け</span></div>
-          <a class="hero-action" href="#settings">設定手順を読む <span aria-hidden="true">↓</span></a>
+          <a class="hero-action" href="#quick-setup">コマンドで設定する <span aria-hidden="true">↓</span></a>
         </div>
         <aside class="journey" aria-label="移動時間の活用イメージ">
           <p class="journey-label">MAKE THE WAIT WORK.</p>
@@ -113,9 +114,108 @@
         </section>
 
         <section id="settings" class="section">
-          <p class="section-kicker">03 / SET UP WINDOWS</p><h2>処理を続けたいときの、<br>3つの基本設定。</h2>
+          <p class="section-kicker">03 / SET UP WINDOWS</p><h2>3つの基本設定を、<br>まとめて。</h2>
           <p>電源接続時だけでなく、<strong>バッテリー使用時の欄も</strong>確認します。すでに下記の値なら、変更は不要です。設定前に、それぞれの元の値を控えてください。</p>
-          <p class="visual-guide-note"><strong>画面と見比べながら設定できます。</strong><br>以下は操作箇所を示すために再現した「説明用の画面イメージ」です。枠内の番号と、図の下の説明を順番に確認してください。実際のスクリーンショットではなく、画面の一部を省略しています。Windowsのバージョンや機種により、表示名・配置・項目の有無は異なります。</p>
+          <div id="quick-setup" class="quick-setup command-panel" data-command-group>
+  <p class="small-label">POWERSHELL · QUICK SETUP</p><h3>コピーして、まとめて設定。</h3>
+  <p>基本の3項目を、一括で設定できます。現在の電源プランを複製して作業用プランを作るため、元のプランは残ります。</p>
+  <ul class="plain-list"><li>ふたを閉じたとき：<strong>何もしない</strong></li><li>自動スリープ：<strong>なし</strong></li><li>Wi-Fiの省電力：<strong>最大パフォーマンス</strong></li></ul>
+  <p class="helper">上の3項目は、電源接続時・バッテリー使用時の両方に設定します。</p>
+  <ol class="steps-list"><li>スタートで<strong>「Windows PowerShell」</strong>を検索し、<strong>「管理者として実行」</strong>で開きます。会社のPCで権限や設定が制限されている場合は、管理担当者に確認してください。</li><li>下のコマンド全文で内容を確認してからコピーし、PowerShellに貼り付けて<strong>Enter</strong>を押します。</li><li>画面消灯の追加対策を聞かれたら、通常は<strong>N</strong>またはそのままEnter。今回の改善事例と同じく、<strong>バッテリー時の画面消灯も止めて試す場合だけY</strong>を入力します。</li><li>完了メッセージを確認し、<a href="#verify">10分以上の動作確認</a>へ進みます。元に戻すときは、下の<a href="#quick-restore">復元用コマンド</a>を使います。</li></ol>
+  <button type="button" class="copy-btn setup-copy" data-copy="code-setup-all" aria-label="一括設定コマンドをコピー">一括設定コマンドをコピー</button>
+  <p class="status-message" role="status" aria-live="polite"></p>
+  <details class="all-command"><summary>一括設定コマンドの全文を確認する</summary><div class="code-box"><pre><code id="code-setup-all">&amp; {
+  $ErrorActionPreference = 'Stop'
+  function Invoke-Power([string[]]$PowerArgs) {
+    $result = &amp; powercfg.exe @PowerArgs 2&gt;&amp;1
+    if ($LASTEXITCODE -ne 0) { throw "powercfg に失敗しました: $($PowerArgs -join ' ')`n$($result -join "`n")" }
+    $result -join "`n"
+  }
+  function Get-ActivePlan {
+    $text = Invoke-Power -PowerArgs @('/getactivescheme')
+    $match = [regex]::Match($text, '(?i)\b[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\b')
+    if (-not $match.Success) { throw '現在の電源プランを確認できません。' }
+    $match.Value
+  }
+  function Get-SettingValues($plan, $group, $setting) {
+    $text = Invoke-Power -PowerArgs @('/qh', $plan, $group, $setting)
+    $values = [regex]::Matches($text, '(?i)0x([0-9a-f]{8})')
+    if ($values.Count -lt 2) { throw "設定を読み取れません: $setting" }
+    [Convert]::ToUInt32($values[$values.Count - 2].Groups[1].Value, 16)
+    [Convert]::ToUInt32($values[$values.Count - 1].Groups[1].Value, 16)
+  }
+  $stateDir = Join-Path $env:LOCALAPPDATA 'SalesPcGuide'
+  $statePath = Join-Path $stateDir 'restore.json'
+  $originalPlan = $null
+  $guidePlan = $null
+  $duplicateAttempted = $false
+  try {
+    if (Test-Path -LiteralPath $statePath) { throw '復元情報が既にあります。先に記事の「元に戻す」コマンドを実行してください。' }
+    Write-Host '元の電源プランと、設定できる項目を確認します。'
+    $originalPlan = Get-ActivePlan
+    $guidePlan = [guid]::NewGuid().ToString()
+    $settings = @(
+      @('SUB_BUTTONS', 'LIDACTION'),
+      @('SUB_SLEEP', 'STANDBYIDLE'),
+      @('19cbb8fa-5279-450e-9fac-8a3d5fedd0c1', '12bbebe6-58d6-4636-95bb-3217ef867c1a')
+    )
+    foreach ($item in $settings) { $null = Get-SettingValues $originalPlan $item[0] $item[1] }
+    $displayOff = (Read-Host '追加対策：バッテリー時の自動画面消灯も「なし」にしますか？ y＝変更、Enter＝変更しない [y/N]') -match '^[yY]$'
+    if ($displayOff) { $null = Get-SettingValues $originalPlan 'SUB_VIDEO' 'VIDEOIDLE' }
+    $null = New-Item -ItemType Directory -Path $stateDir -Force
+    $state = [ordered]@{ version = 1; originalPlan = $originalPlan; guidePlan = $guidePlan; createdAt = (Get-Date).ToString('o'); displayOffOnBattery = $displayOff }
+    $bytes = [Text.Encoding]::UTF8.GetBytes(($state | ConvertTo-Json))
+    $stream = [IO.File]::Open($statePath, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write, [IO.FileShare]::None)
+    try { $stream.Write($bytes, 0, $bytes.Length) } finally { $stream.Dispose() }
+    $saved = Get-Content -LiteralPath $statePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if ($saved.originalPlan -ne $originalPlan -or $saved.guidePlan -ne $guidePlan) { throw '復元情報の保存を確認できません。' }
+    Write-Host "復元情報を保存しました: $statePath"
+    Write-Host '元のプランを残し、専用プランに設定します。'
+    $duplicateAttempted = $true
+    $null = Invoke-Power -PowerArgs @('/duplicatescheme', $originalPlan, $guidePlan)
+    $null = Invoke-Power -PowerArgs @('/changename', $guidePlan, 'Sales PC Guide')
+    foreach ($item in $settings) {
+      $null = Invoke-Power -PowerArgs @('/setacvalueindex', $guidePlan, $item[0], $item[1], '0')
+      $null = Invoke-Power -PowerArgs @('/setdcvalueindex', $guidePlan, $item[0], $item[1], '0')
+      $values = @(Get-SettingValues $guidePlan $item[0] $item[1])
+      if ($values[0] -ne 0 -or $values[1] -ne 0) { throw "設定値が一致しません: $($item[1])" }
+    }
+    if ($displayOff) {
+      $null = Invoke-Power -PowerArgs @('/setdcvalueindex', $guidePlan, 'SUB_VIDEO', 'VIDEOIDLE', '0')
+      $values = @(Get-SettingValues $guidePlan 'SUB_VIDEO' 'VIDEOIDLE')
+      if ($values[1] -ne 0) { throw '画面消灯の設定値が一致しません。' }
+    }
+    Write-Host '設定値を確認できました。専用プランへ切り替えます。'
+    $null = Invoke-Power -PowerArgs @('/setactive', $guidePlan)
+    if ((Get-ActivePlan) -ne $guidePlan) { throw '専用プランへの切り替えを確認できません。' }
+    foreach ($item in $settings) {
+      $values = @(Get-SettingValues $guidePlan $item[0] $item[1])
+      if ($values[0] -ne 0 -or $values[1] -ne 0) { throw '切り替え後の設定値が一致しません。' }
+    }
+    if ($displayOff -and (@(Get-SettingValues $guidePlan 'SUB_VIDEO' 'VIDEOIDLE'))[1] -ne 0) { throw '切り替え後の画面消灯の設定値が一致しません。' }
+    Write-Host '完了：ふた＝何もしない、スリープ＝なし、Wi-Fi＝最大パフォーマンス（電源接続時・バッテリー時）。'
+    if ($displayOff) { Write-Host '追加対策：バッテリー時の自動画面消灯も「なし」にしました。' }
+    Write-Host '記事の動作確認を行ってください。元に戻すときは復元用コマンドを使います。'
+  } catch {
+    $failure = $_
+    if ($originalPlan) {
+      try {
+        if ((Get-ActivePlan) -ne $originalPlan) { $null = Invoke-Power -PowerArgs @('/setactive', $originalPlan) }
+        if ((Get-ActivePlan) -ne $originalPlan) { throw '元のプランを確認できません。' }
+        Write-Host '元の電源プランで動作していることを確認しました。元のプランの設定値は変更していません。'
+      } catch { Write-Warning "元のプランへの復帰を確認できません。コントロール パネルで確認してください。復元情報: $statePath" }
+    }
+    if ($duplicateAttempted) { Write-Warning '専用プランが残っている場合があります。自動削除はしていません。' }
+    if (Test-Path -LiteralPath $statePath) { Write-Host "再実行の前に復元用コマンドを実行してください。復元情報: $statePath" }
+    throw $failure
+  }
+}</code></pre></div></details>
+  <p class="helper command-footnote">復元情報は、このPCのローカルアプリデータ内の「SalesPcGuide」フォルダーに保存します。復元前に同じコマンドを再実行した場合は、情報を上書きせず停止します。エラーが出たら続けず、表示された案内を確認してください。</p>
+  <p class="helper">作業用プラン名は「Sales PC Guide」です。このコマンドは電源プラン設定と、このPC内の復元記録だけを扱います。復元時も、設定時と同じWindowsユーザーで実行してください。</p>
+  <p class="helper">スリープを止め、Wi-Fiを最大パフォーマンスにすると電池消費が増えます。吸排気口を塞がず、熱がこもる収納状態では動かさないでください。通信や処理が続くかは実際に確認します。</p>
+</div>
+<h3 class="manual-heading">画面から設定する場合</h3><p class="helper">一括コマンドで設定した方は、下の操作を重ねて行う必要はありません。画面で確認したい場合や、項目ごとに設定したい場合の手順です。</p>
+<p class="visual-guide-note"><strong>画面と見比べながら設定できます。</strong><br>以下は操作箇所を示すために再現した「説明用の画面イメージ」です。枠内の番号と、図の下の説明を順番に確認してください。実際のスクリーンショットではなく、画面の一部を省略しています。Windowsのバージョンや機種により、表示名・配置・項目の有無は異なります。</p>
 
           <div class="step" id="lid-setting">
             <div class="step-header"><span class="step-number">01</span><div><h3>ふたを閉じても、処理を続ける</h3><p>カバーを閉じたときの動作</p></div></div>
@@ -202,7 +302,54 @@ powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1</code></pre></d
             <li><label><input type="checkbox"><span>ふたを開いた後、処理が進んでいたことを確認した<small>Wi-Fiの接続表示だけでなく、結果や処理ログに中断がないか確認します。</small></span></label></li>
             <li><label><input type="checkbox"><span>使う予定の通信回線でも確認した<small>テザリング、必要なVPN、アプリへのサインインが維持されるかも確認します。</small></span></label></li>
           </ul><p class="helper">チェックはこの画面上だけの確認用です。再読み込み後の保存はしません。</p>
-          <div class="restore"><h3>元に戻すときは</h3><p>設定したのと同じ画面を開き、<strong>変更前に控えた値</strong>に戻します。ふたの動作とWi-Fiは保存・適用まで行い、電源接続時・バッテリー時をそれぞれ見直してください。</p><p>一律の「既定値に戻す」では、今回触っていない項目まで変わる場合があります。変更した項目だけを戻しましょう。</p>
+          <div id="quick-restore" class="restore command-panel" data-command-group><h3>一括コマンドで設定した場合の戻し方</h3>
+<p>一括設定時の記録を自動で読み込み、<strong>元の電源プランへ切り替えます</strong>。<strong>設定時と同じWindowsユーザーで</strong>Windows PowerShellを管理者として開き、内容を確認してから以下をコピーし、貼り付けてEnterを押してください。</p>
+<button type="button" class="copy-btn setup-copy" data-copy="code-restore-all" aria-label="元の電源プランへ戻すコマンドをコピー">元のプランへ戻すコマンドをコピー</button><p class="status-message" role="status" aria-live="polite"></p>
+<details class="all-command"><summary>復元用コマンドの全文を確認する</summary><div class="code-box"><pre><code id="code-restore-all">&amp; {
+  $ErrorActionPreference = 'Stop'
+  function Invoke-Power([string[]]$PowerArgs) {
+    $result = &amp; powercfg.exe @PowerArgs 2&gt;&amp;1
+    if ($LASTEXITCODE -ne 0) { throw "powercfg に失敗しました: $($PowerArgs -join ' ')`n$($result -join "`n")" }
+    $result -join "`n"
+  }
+  function Get-ActivePlan {
+    $text = Invoke-Power -PowerArgs @('/getactivescheme')
+    $match = [regex]::Match($text, '(?i)\b[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\b')
+    if (-not $match.Success) { throw '現在の電源プランを確認できません。' }
+    $match.Value
+  }
+  $stateDir = Join-Path $env:LOCALAPPDATA 'SalesPcGuide'
+  $statePath = Join-Path $stateDir 'restore.json'
+  $originalPlan = $null
+  try {
+    if (-not (Test-Path -LiteralPath $statePath)) { throw '復元情報がありません。この一括設定を実行したWindowsユーザーで確認してください。' }
+    $saved = Get-Content -LiteralPath $statePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $originalId = [guid]::Empty
+    $guideId = [guid]::Empty
+    if ($saved.version -ne 1 -or -not [guid]::TryParse([string]$saved.originalPlan, [ref]$originalId) -or -not [guid]::TryParse([string]$saved.guidePlan, [ref]$guideId) -or $originalId -eq [guid]::Empty -or $guideId -eq [guid]::Empty -or $originalId -eq $guideId) { throw '復元情報の形式を確認できません。ファイルを変更せず管理担当者に確認してください。' }
+    $originalPlan = $originalId.ToString()
+    Write-Host '記録した元の電源プランへ戻します。'
+    $null = Invoke-Power -PowerArgs @('/setactive', $originalPlan)
+    if ((Get-ActivePlan) -ne $originalPlan) { throw '元のプランへの切り替えを確認できません。' }
+    $historyPath = Join-Path $stateDir ('history-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [guid]::NewGuid().ToString('N') + '.json')
+    Move-Item -LiteralPath $statePath -Destination $historyPath
+    Write-Host '元の電源プランへの復帰を確認しました。専用プランは削除せず残しています。'
+    Write-Host "復元記録: $historyPath"
+  } catch {
+    $failure = $_
+    if ($originalPlan) {
+      try {
+        if ((Get-ActivePlan) -ne $originalPlan) { $null = Invoke-Power -PowerArgs @('/setactive', $originalPlan) }
+        if ((Get-ActivePlan) -ne $originalPlan) { throw '元のプランを確認できません。' }
+        Write-Host '元の電源プランで動作していることを確認しました。'
+      } catch { Write-Warning '元のプランへの復帰を確認できません。コントロール パネルで確認してください。' }
+    }
+    if (Test-Path -LiteralPath $statePath) { Write-Warning "復元処理は完了していません。復元情報を残しています: $statePath" }
+    throw $failure
+  }
+}</code></pre></div></details>
+<p class="helper command-footnote">作業用プランは削除せず残します。復元に成功した記録も履歴として保存します。この復元方法は、上の「一括設定コマンド」を使った場合のものです。画面操作や項目別コマンドで変更した場合は、下の方法で元の値に戻してください。</p></div>
+<div class="restore"><h3>画面操作・項目別コマンドで設定した場合</h3><p>設定したのと同じ画面を開き、<strong>変更前に控えた値</strong>に戻します。ふたの動作とWi-Fiは保存・適用まで行い、電源接続時・バッテリー時をそれぞれ見直してください。</p><p>一律の「既定値に戻す」では、今回触っていない項目まで変わる場合があります。変更した項目だけを戻しましょう。</p>
             <details id="restore-commands"><summary>コマンドで変更したWi-Fi設定を戻す場合</summary><div class="details-content">
               <p>コントロール パネルの「電源オプション」で、<strong>変更前に控えたプランと同じもの</strong>を選んでから実行します。AC・DCそれぞれの元の値（0～3）を聞かれたら入力します。記録がない場合は値を推測せず、管理担当者に確認してください。</p>
               <div class="code-box"><div class="code-toolbar"><span>PowerShell · 復元</span><button type="button" class="copy-btn" data-copy="code-restore" aria-label="元のWi-Fi設定へ戻すコマンドをコピー">コピー</button></div><pre><code id="code-restore">&amp; {
@@ -224,6 +371,7 @@ powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1</code></pre></d
           </div>
           <div class="note"><strong>まだ切れる場合は、起きた時刻と条件を記録する。</strong><p>電源接続の有無、使った回線、ふたを閉じて何分で止まったかを控えます。回線・ドライバー・会社のポリシーなど、別の原因の可能性もあるため、同じ設定変更を繰り返すより切り分けに役立ちます。</p></div>
           <div class="sources" id="sources"><h3>参考にした公式情報</h3><ol>
+<li><a href="https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options">Microsoft Learn：powercfgのコマンド仕様</a></li>
             <li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows">Microsoft：WindowsのWi-Fi接続の問題を解決する</a></li>
             <li><a href="https://support.microsoft.com/en-us/windows/experience/power-battery/shut-down-sleep-or-hibernate-your-pc">Microsoft：PCのシャットダウン・スリープ・休止状態</a></li>
             <li><a href="https://learn.microsoft.com/en-us/windows-hardware/customize/power-settings/power-controls-enableinputsuppression">Microsoft Learn：ふたを閉じたときの動作とModern Standby</a></li>
@@ -318,14 +466,16 @@ powercfg /qh SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1</code></pre></d
     document.querySelectorAll('[data-copy]').forEach(function(button){
       button.addEventListener('click', async function(){
         var code=document.getElementById(button.dataset.copy);
-        var status=button.closest('.details-content').querySelector('[role="status"]');
+        var originalLabel=button.textContent;
+        var status=button.closest('[data-command-group], .details-content').querySelector('[role="status"]');
         try{
           if(!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
           await navigator.clipboard.writeText(code.textContent);
           button.textContent='コピーしました';
           status.textContent='コマンドをコピーしました。内容を確認してからPowerShellに貼り付けてください。';
-          window.setTimeout(function(){button.textContent='コピー';},2500);
+          window.setTimeout(function(){button.textContent=originalLabel;},2500);
         }catch(error){
+          var disclosure=code.closest('details'); if(disclosure) disclosure.open=true;
           var range=document.createRange();range.selectNodeContents(code);
           var selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);
           status.textContent='自動コピーを利用できません。選択したコマンドを手動でコピーしてください。';
